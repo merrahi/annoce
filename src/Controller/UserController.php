@@ -44,14 +44,15 @@ class UserController extends AbstractController
     }
 
     /**
-     * @Route("/login", name="api_login",methods={"GET"})
+     * @Route("/login", name="api_login")
      */
     public function login(AuthenticationUtils $authenticationUtils,Request $request): Response
     {
-
+        dd();
         $lastUsername = $authenticationUtils->getLastUsername();
         $error = $authenticationUtils->getLastAuthenticationError();
-        dd($lastUsername,$error);
+        dd($request->getContent());
+
         return $this->json( [
             'last_username' => $lastUsername,
             'error' => $error,
@@ -61,5 +62,31 @@ class UserController extends AbstractController
             'message' => 'Welcome to your new controller!',
             'path' => 'src/Controller/UserController.php',
         ]);*/
+
+
+        // get the login error if there is one
+        $error = $authenticationUtils->getLastAuthenticationError();
+        // last username entered by the user
+        $lastUsername = $authenticationUtils->getLastUsername();
+
+        $return = ['last_username' => $lastUsername, 'error' => $error];
+        dd($return);
+
+
+        // get the login error if there is one
+        $error = $authenticationUtils->getLastAuthenticationError();
+        // last username entered by the user
+        $lastUsername = $authenticationUtils->getLastUsername();
+
+        $return = ['last_username' => $lastUsername, 'error' => $error];
+
+        if($session->has('message'))
+        {
+            $message = $session->get('message');
+            $session->remove('message'); //on vide la variable message dans la session
+            $return['message'] = $message; //on ajoute à l'array de paramètres notre message
+        }
+
+        return $this->render('security/login.html.twig', $return);
     }
 }

@@ -154,6 +154,7 @@ class User implements UserInterface
      */
     public function getRoles()
     {
+        return ['ROLE_USER'];
         // TODO: Implement getRoles() method.
     }
 
@@ -166,6 +167,7 @@ class User implements UserInterface
      */
     public function getSalt()
     {
+        return array();
         // TODO: Implement getSalt() method.
     }
 
