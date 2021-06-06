@@ -13,7 +13,7 @@ Create
 
 
 {
-	"title" : "Développeur PHP/Symfony Hassan",
+	{"title" : "Développeur PHP/Symfony Hassan",
 	"content" : "Le développeur Symfony doit avant tout posséder des compétences techniques poussées : le couple HTML5/CSS3, le JavaScript et bien évidemment le PHP qu’il doit connaître sur le bout des doigts. Il doit aussi savoir utiliser les bases de données, relationelles ou non comme MySQL, PostgreSQL, voire MongDB. La maîtrise du framework open source Symfony est indispensable et la connaissance des principaux CMS recommandée.",
 	"category": {
 				"type" :"emploi",
@@ -22,7 +22,7 @@ Create
 			    				"contract_type" : "CDI"
       		
       						 } 
-				}
+				}}
      
 	
 }
