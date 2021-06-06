@@ -33,11 +33,6 @@ class Post
     private $user;
 
     /**
-     * @ORM\OneToOne(targetEntity=Category::class, mappedBy="Post", cascade={"persist", "remove"})
-     */
-    private $category;
-
-    /**
      * @ORM\OneToOne(targetEntity=ListCategory::class, mappedBy="post", cascade={"persist", "remove"})
      */
     private $listCategory;
@@ -83,27 +78,7 @@ class Post
         return $this;
     }
 
-    public function getCategory(): ?Category
-    {
-        return $this->category;
-    }
 
-    public function setCategory(?Category $category): self
-    {
-        // unset the owning side of the relation if necessary
-        if ($category === null && $this->category !== null) {
-            $this->category->setPost(null);
-        }
-
-        // set the owning side of the relation if necessary
-        if ($category !== null && $category->getPost() !== $this) {
-            $category->setPost($this);
-        }
-
-        $this->category = $category;
-
-        return $this;
-    }
 
     public function getListCategory(): ?ListCategory
     {

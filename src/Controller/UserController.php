@@ -3,6 +3,7 @@
 namespace App\Controller;
 use App\Entity\User;
 
+
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ObjectManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -38,9 +39,6 @@ class UserController extends AbstractController
                 'message' => 'Syntax Error'
             ]);
         }
-
-
-        dd($userjson);
     }
 
     /**
