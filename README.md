@@ -9,7 +9,8 @@
 APi Call
 
 Create
-POST http://127.0.0.1:8000/api/create
+#POST http://127.0.0.1:8000/api/create
+
 {
 {
 	"title" : "Développeur PHP/Symfony Hassan",
