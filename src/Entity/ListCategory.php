@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\ListCategoryRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass=ListCategoryRepository::class)
@@ -19,21 +20,25 @@ class ListCategory
 
     /**
      * @ORM\OneToOne(targetEntity=Post::class, inversedBy="listCategory", cascade={"persist", "remove"})
+     * @Groups("listegroupe:create","listegroupe:edit")
      */
     private $post;
 
     /**
      * @ORM\OneToOne(targetEntity=Emploi::class, inversedBy="listCategory", cascade={"persist", "remove"})
+     * @Groups("listegroupe:create","listegroupe:edit")
      */
     private $emploi;
 
     /**
      * @ORM\OneToOne(targetEntity=Immo::class, inversedBy="listCategory", cascade={"persist", "remove"})
+     * @Groups("listegroupe:create","listegroupe:edit")
      */
     private $immo;
 
     /**
      * @ORM\OneToOne(targetEntity=Automobile::class, cascade={"persist", "remove"})
+     * @Groups("listegroupe:create","listegroupe:edit")
      */
     private $automobile;
 

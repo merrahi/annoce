@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\EmploiRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass=EmploiRepository::class)
@@ -19,21 +20,26 @@ class Emploi
 
     /**
      * @ORM\Column(type="float", nullable=true)
+     * @Groups("listegroupe:create","listegroupe:edit")
+     *
      */
     private $Salaire;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups("listegroupe:create","listegroupe:edit")
      */
     private $ContractType;
 
     /**
      * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="emplois")
+     * @Groups("listegroupe:create","listegroupe:edit")
      */
     private $category;
 
     /**
      * @ORM\OneToOne(targetEntity=ListCategory::class, mappedBy="emploi", cascade={"persist", "remove"})
+     * @Groups("listegroupe:create")
      */
     private $listCategory;
 

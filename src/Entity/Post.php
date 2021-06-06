@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\PostRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass=PostRepository::class)
@@ -14,21 +15,25 @@ class Post
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups("post:create")
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups("post:create","listegroupe:create","listegroupe:edit")
      */
     private $title;
 
     /**
      * @ORM\Column(type="string", length=1000)
+     * @Groups("post:create","listegroupe:create","listegroupe:edit")
      */
     private $content;
 
     /**
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="posts")
+     * @Groups("post:create","listegroupe:create")
      */
     private $user;
 

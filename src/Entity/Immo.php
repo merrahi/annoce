@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\ImmoRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass=ImmoRepository::class)
@@ -19,11 +20,13 @@ class Immo
 
     /**
      * @ORM\Column(type="float", nullable=true)
+     * @Groups("listegroupe:create","listegroupe:edit")
      */
     private $surface;
 
     /**
      * @ORM\Column(type="float", nullable=true)
+     * @Groups("listegroupe:create","listegroupe:edit")
      */
     private $price;
 
