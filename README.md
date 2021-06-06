@@ -28,7 +28,7 @@ Create
 }
 }
 
-Edit
+# Edit
 PUT http://127.0.0.1:8000/api/edit/80
 {
 	"title" : "TEST EditDéveloppeur PHP/Symfony",
@@ -44,8 +44,8 @@ PUT http://127.0.0.1:8000/api/edit/80
 	
 }
 
-Delete
+# Delete
 DELETE http://127.0.0.1:8000/api/delete/42
 
-List
+# List
 GET http://127.0.0.1:8000/api/list/38
